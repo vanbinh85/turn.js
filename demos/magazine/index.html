@@ -2,7 +2,7 @@
 <html>
 <head>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../../turn.min.js"></script>
+<script type="text/javascript" src="../../lib/turn-alone.js"></script>
 
 <style type="text/css">
 body{
@@ -36,6 +36,7 @@ body{
 		$('#magazine').turn({
 							display: 'double',
 							acceleration: true,
+							//autoCenter: true,
 							gradients: !$.isTouch,
 							elevation:50,
 							when: {
