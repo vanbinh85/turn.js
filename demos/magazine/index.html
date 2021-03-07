@@ -1,8 +1,10 @@
 <!doctype html>
 <html>
 <head>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../lib/jquery.slim.js"></script>
+<!-- <script type="text/javascript" src="../../lib/utils.js"></script> -->
 <script type="text/javascript" src="../../lib/turn-alone.js"></script>
+<!-- <script type="text/javascript" src="../../lib/turn-nojquery.js"></script> -->
 
 <style type="text/css">
 body{
@@ -31,31 +33,36 @@ body{
 
 
 <script type="text/javascript">
-
-	$(window).ready(function() {
-		$('#magazine').turn({
+	function startTurn() {
+		window.turnjs(document.querySelector('#magazine'), {
 							display: 'double',
 							acceleration: true,
 							//autoCenter: true,
-							gradients: !$.isTouch,
+							gradients: true,
 							elevation:50,
 							when: {
 								turned: function(e, page) {
-									/*console.log('Current view: ', $(this).turn('view'));*/
+									
 								}
 							}
 						});
-	});
+	}
+
+	if (document.readyState != 'loading') {
+		startTurn();
+        } else {
+            document.addEventListener('DOMContentLoaded', startTurn);
+        }
+
 	
-	
-	$(window).bind('keydown', function(e){
+	/*$(window).bind('keydown', function(e){
 		
 		if (e.keyCode==37)
 			$('#magazine').turn('previous');
 		else if (e.keyCode==39)
 			$('#magazine').turn('next');
 			
-	});
+	});*/
 
 </script>
 
